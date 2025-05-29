@@ -1,0 +1,85 @@
+/* ================== Variables ================== */
+:root {
+  --main-color: #0099a0;
+  --secondary-color: #00bcd4;
+  --font-main: 'Cairo', sans-serif;
+}
+
+/* ================== Global Styles ================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  overflow-x: hidden;
+}
+
+/* ================== Todo Input Section ================== */
+.todo-input {
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+}
+
+.todo-input__heading {
+  font-size: 1.5rem;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+
+.todo-input__form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  gap: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.todo-input__input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.todo-input__icon {
+  color: white;
+  background: var(--secondary-color);
+  padding: 8px;
+  margin-right: 8px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+
+.todo-input__field {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
+  padding: 8px;
+}
+
+.todo-input__add-button {
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 1.2rem;
+  color: white;
+  background: var(--secondary-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+.todo-input__add-button:hover {
+  background-color: var(--main-color);
+}
