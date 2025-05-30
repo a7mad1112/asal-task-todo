@@ -50,3 +50,20 @@ const validateTask = (taskText) => {
       addTaskButton.disabled = false;
     }
   };
+
+  
+  const addTask = () => {
+    const taskText = taskInputField.value.trim();
+    const newTask = {
+      title: taskText,
+      completed: false,
+      id: idGen.next(),
+    };
+
+    tasks.push(newTask);
+    console.log("Updated Tasks:", tasks);
+
+    taskInputField.value = "";
+    errorMessage.textContent = "";
+    addTaskButton.disabled = true;
+  };
