@@ -24,3 +24,16 @@ console.log("Initial Data: ",tasks);
 const addTaskButton = document.getElementById("addNewTaskButton");
 const taskInputField = document.getElementById("todoInputField");
 const errorMessage = document.getElementById("errorMessage");
+
+const validateTask = (taskText) => {
+    if (taskText.trim() === "") {
+      return "Task cannot be empty.";
+    }
+    if (/^\d/.test(taskText)) {
+      return "Task must not start with a number.";
+    }
+    if (taskText.trim().length < 5) {
+      return "Task must be at least 5 characters long.";
+    }
+    return "";
+  };
