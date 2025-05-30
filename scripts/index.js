@@ -37,3 +37,16 @@ const validateTask = (taskText) => {
     }
     return "";
   };
+
+  const checkInputValidity = () => {
+    const taskText = taskInputField.value;
+    const validationError = validateTask(taskText);
+
+    if (validationError) {
+      errorMessage.textContent = validationError;
+      addTaskButton.disabled = true;
+    } else {
+      errorMessage.textContent = "";
+      addTaskButton.disabled = false;
+    }
+  };
