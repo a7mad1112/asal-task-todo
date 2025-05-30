@@ -67,3 +67,6 @@ const validateTask = (taskText) => {
     errorMessage.textContent = "";
     addTaskButton.disabled = true;
   };
+  
+  taskInputField.addEventListener("input", () => checkInputValidity());
+  addTaskButton.addEventListener("click", () => addTask());
