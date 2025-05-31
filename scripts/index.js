@@ -54,6 +54,14 @@ const validateTask = (taskText) => {
   
   const addTask = () => {
     const taskText = taskInputField.value.trim();
+    const validationError = validateTask(taskText);
+
+    if (validationError) {
+      errorMessage.textContent = validationError;
+      addTaskButton.disabled = true;
+      return;
+    }
+
     const newTask = {
       title: taskText,
       completed: false,
@@ -67,6 +75,21 @@ const validateTask = (taskText) => {
     errorMessage.textContent = "";
     addTaskButton.disabled = true;
   };
+
   
-  taskInputField.addEventListener("input", () => checkInputValidity());
+taskInputField.addEventListener("focus", () => {
+    if (taskInputField.value.trim() === "") {
+      errorMessage.textContent = "Task cannot be empty.";
+      addTaskButton.disabled = true;
+    }
+  });
+
+  taskInputField.addEventListener("blur", () => {
+    checkInputValidity();
+  });
+
+  taskInputField.addEventListener("input", () => {
+    checkInputValidity();
+  });
+
   addTaskButton.addEventListener("click", () => addTask());
