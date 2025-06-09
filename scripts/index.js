@@ -105,5 +105,18 @@ taskInputField.addEventListener("focus", () => {
     if (currentFilter === "todo") return !task.completed;
     return true;
   });
-  
+  filteredTasks.forEach(task => {
+    const taskDiv = document.createElement("div");
+    taskDiv.className = "task-item";
+
+    taskDiv.innerHTML = `
+      <input type="checkbox" ${task.completed ? "checked" : ""} onchange="toggleTask(${task.id})">
+      <span class="${task.completed ? 'task-completed' : ''}">${task.title}</span>
+      <button onclick="editTask(${task.id})"><i class="fas fa-pencil-alt"></i></button>
+      <button onclick="deleteTask(${task.id})"><i class="fas fa-trash"></i></button>
+    `;
+
+    taskListContainer.appendChild(taskDiv);
+    });
+
 };
