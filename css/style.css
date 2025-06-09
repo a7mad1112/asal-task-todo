@@ -138,3 +138,22 @@ body {
   flex: 1;
   font-size: 1rem;
 }
+.task-item span.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task-item button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+}
