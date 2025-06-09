@@ -93,3 +93,6 @@ taskInputField.addEventListener("focus", () => {
   });
 
   addTaskButton.addEventListener("click", () => addTask());
+
+  const taskListContainer = document.getElementById("taskList");
+  let currentFilter = "all";
