@@ -128,11 +128,19 @@ taskInputField.addEventListener("focus", () => {
   if (task) task.completed = !task.completed;
   renderTasks();
   };
-  
+
   const deleteTask = (id) => {
   const index = tasks.findIndex(t => t.id === id);
   if (index !== -1) tasks.splice(index, 1);
   renderTasks();
   };
 
+  const editTask = (id) => {
+  const task = tasks.find(t => t.id === id);
+  const newTitle = prompt("Edit your task", task.title);
+  if (newTitle && validateTask(newTitle) === "") {
+    task.title = newTitle;
+    renderTasks();
+  }
+};
 };
