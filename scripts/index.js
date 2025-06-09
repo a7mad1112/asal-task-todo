@@ -143,4 +143,12 @@ taskInputField.addEventListener("focus", () => {
     renderTasks();
   }
 };
+
+const originalAddTask = addTask;
+addTask = () => {
+  originalAddTask();
+  renderTasks();
+};
+
+window.onload = () => renderTasks();
 };
