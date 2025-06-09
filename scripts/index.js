@@ -119,4 +119,9 @@ taskInputField.addEventListener("focus", () => {
     taskListContainer.appendChild(taskDiv);
     });
 
+    const filterTasks = (filter) => {
+    currentFilter = filter;
+    renderTasks();
+  };
+  
 };
