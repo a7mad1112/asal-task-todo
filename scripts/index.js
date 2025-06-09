@@ -96,3 +96,14 @@ taskInputField.addEventListener("focus", () => {
 
   const taskListContainer = document.getElementById("taskList");
   let currentFilter = "all";
+
+  const renderTasks = () => {
+  taskListContainer.innerHTML = "";
+
+  const filteredTasks = tasks.filter(task => {
+    if (currentFilter === "done") return task.completed;
+    if (currentFilter === "todo") return !task.completed;
+    return true;
+  });
+  
+};
