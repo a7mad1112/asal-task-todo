@@ -129,4 +129,10 @@ taskInputField.addEventListener("focus", () => {
   renderTasks();
   };
   
+  const deleteTask = (id) => {
+  const index = tasks.findIndex(t => t.id === id);
+  if (index !== -1) tasks.splice(index, 1);
+  renderTasks();
+  };
+
 };
