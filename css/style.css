@@ -88,3 +88,13 @@ body {
   align-self: start;
   font-size: 15px;
 }
+.todo-list {
+  text-align: center;
+  padding: 20px;
+}
+
+.todo-list__heading {
+  font-size: 1.5rem;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
