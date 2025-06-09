@@ -180,3 +180,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+.todo-footer button:hover {
+  background-color: darkred;
+}
