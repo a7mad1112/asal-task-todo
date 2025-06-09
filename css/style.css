@@ -98,3 +98,19 @@ body {
   color: var(--main-color);
   margin-bottom: 10px;
 }
+.todo-list__filters {
+  margin-bottom: 20px;
+}
+
+.todo-list__filters button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--secondary-color);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
