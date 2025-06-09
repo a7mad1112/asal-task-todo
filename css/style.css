@@ -114,3 +114,17 @@ body {
   transition: background-color 0.3s;
 }
 
+.todo-list__filters button:hover {
+  background-color: var(--main-color);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px 30px;
+}
