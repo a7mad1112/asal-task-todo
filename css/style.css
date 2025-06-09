@@ -157,3 +157,10 @@ body {
   transition: background-color 0.3s;
   font-size: 1rem;
 }
+.task-item button:hover {
+  background-color: var(--main-color);
+}
+
+.task-item i {
+  pointer-events: none;
+}
