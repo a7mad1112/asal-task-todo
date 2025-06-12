@@ -15,13 +15,13 @@
   </head>
   <body>
     <section class="todo-input" id="todoInputSection">
-      <h2 class="todo-input__heading">TodoInput</h2>
-      <div class="todo-input__form">
+      <h1 class="todo-input__heading">TodoInput</h1>
+      <form class="todo-input__form">
         <div class="todo-input__input-container">
-          <i class="fas fa-book todo-input__icon"></i>
+          <label for="todoInputField"><i class="fas fa-book todo-input__icon"></i></label>
           <input
             type="text"
-            placeholder="New Todo"
+            placeholder="Type to add new task"
             class="todo-input__field"
             id="todoInputField"
           />
@@ -30,7 +30,7 @@
         <button class="todo-input__add-button" id="addNewTaskButton">
           Add New Task
         </button>
-      </div>
+      </form>
     </section>
 
     <section class="todo-list">
