@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To Do List</title>
-   <!-- google fonts -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!--Style-->
-  <link rel="stylesheet" href="./css/style.css">
+    <!--Style-->
+    <link rel="stylesheet" href="./css/style.css" />
     <!-- import fontawesome -->
     <link href="./fontawesome/css/fontawesome.min.css" rel="stylesheet" />
     <link href="./fontawesome/css/all.min.css" rel="stylesheet" />
-</head>
-<body>
-  <section class="todo-input" id="todoInputSection">
-  <h2 class="todo-input__heading">TodoInput</h2>
-  <div class="todo-input__form">
-    <div class="todo-input__input-container">
-  <i class="fas fa-book todo-input__icon"></i>
-  <input type="text" placeholder="New Todo" class="todo-input__field" id="todoInputField">
-   
-</div>
-<p id="errorMessage"></p>
-    <button class="todo-input__add-button" id="addNewTaskButton" >Add New Task</button>
-  </div>
-</section>
+  </head>
+  <body>
+    <main class="todo-app" id="todoInputSection">
+      <header>
+        <center><h1 class="todo-input__heading">TodoInput</h1></center>
+      </header>
+      <form class="todo-input__form" aria-label="Add new todo form">
+        <div class="todo-input__input-container">
+          <label for="todoInputField" aria-label="Task input">
+            <i class="fas fa-book todo-input__icon"></i>
+          </label>
+          <input
+            type="text"
+            placeholder="Type to add new task"
+            class="todo-input__field"
+            id="todoInputField"
+            aria-describedby="errorMessage"
+          />
+        </div>
+        <p id="errorMessage" role="alert"></p>
+        <button class="btn btn--primary" id="addNewTaskButton">
+          Add New Task
+        </button>
+      </form>
+    </main>
 
-<section class="todo-list">
-  
-  <h2 class="todo-input__heading">Todo List</h2>
-  <div class="todo-list__tabs">
-    <button onclick="filterTasks('all')" class="todo-input__add-button">All</button>
-    <button onclick="filterTasks('done')" class="todo-input__add-button">Done</button>
-    <button onclick="filterTasks('todo')" class="todo-input__add-button">Todo</button>
-  </div>
-  <div id="taskList" class="task-list"></div>
-</section>
-  <script src="./scripts/index.js"></script>
-</body>
+    <section class="todo-list" aria-label="Todo List Section">
+      <header>
+        <h2 class="todo-list__heading">Todo List</h2>
+      </header>
+      <div class="todo-list__tabs" role="group" aria-label="Task Filters">
+        <button class="btn btn--primary" data-filter="all">All</button>
+        <button class="btn btn--primary" data-filter="done">Done</button>
+        <button class="btn btn--primary" data-filter="todo">Todo</button>
+      </div>
+      <div id="taskList" class="task-list"></div>
+    </section>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>
