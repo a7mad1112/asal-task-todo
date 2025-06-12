@@ -43,9 +43,11 @@ const checkInputValidity = () => {
 
   if (validationError) {
     errorMessage.textContent = validationError;
+    taskInputField.classList.add("input-error");
     addTaskButton.disabled = true;
   } else {
     errorMessage.textContent = "";
+    taskInputField.classList.remove("input-error");
     addTaskButton.disabled = false;
   }
 };
