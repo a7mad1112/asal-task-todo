@@ -1,5 +1,5 @@
 const generateId = () => crypto.randomUUID();
-const tasks = [];
+let tasks = loadTasks();
 
 tasks.push({
   title: "welcome to todo task manager",
@@ -16,6 +16,15 @@ tasks.push({
 const addTaskButton = document.getElementById("addNewTaskButton");
 const taskInputField = document.getElementById("todoInputField");
 const errorMessage = document.getElementById("errorMessage");
+
+const saveTasks = () => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+};
+
+const loadTasks = () => {
+  const stored = localStorage.getItem("tasks");
+  return stored ? JSON.parse(stored) : [];
+};
 
 const validateTask = (taskText) => {
   if (taskText.trim() === "") {
@@ -65,6 +74,7 @@ const addTask = () => {
   taskInputField.value = "";
   errorMessage.textContent = "";
   addTaskButton.disabled = true;
+  saveTasks();
 };
 
 taskInputField.addEventListener("focus", () => {
@@ -125,12 +135,14 @@ const toggleTask = (id) => {
   const task = tasks.find((t) => t.id === id);
   if (task) task.completed = !task.completed;
   renderTasks();
+  saveTasks();
 };
 
 const deleteTask = (id) => {
   const index = tasks.findIndex((t) => t.id === id);
   if (index !== -1) tasks.splice(index, 1);
   renderTasks();
+  saveTasks();
 };
 
 const editTask = (id) => {
@@ -139,6 +151,7 @@ const editTask = (id) => {
   if (newTitle && validateTask(newTitle) === "") {
     task.title = newTitle;
     renderTasks();
+    saveTasks();
   }
 };
 
@@ -146,6 +159,7 @@ const originalAddTask = addTask;
 addTask = () => {
   originalAddTask();
   renderTasks();
+  saveTasks();
 };
 
 window.onload = () => renderTasks();
