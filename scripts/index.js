@@ -93,3 +93,61 @@ taskInputField.addEventListener("focus", () => {
   });
 
   addTaskButton.addEventListener("click", () => addTask());
+
+  const taskListContainer = document.getElementById("taskList");
+  let currentFilter = "all";
+
+  const renderTasks = () => {
+  taskListContainer.innerHTML = "";
+
+  const filteredTasks = tasks.filter(task => {
+    if (currentFilter === "done") return task.completed;
+    if (currentFilter === "todo") return !task.completed;
+    return true;
+  });
+  filteredTasks.forEach(task => {
+    const taskDiv = document.createElement("div");
+    taskDiv.className = "task-item";
+
+    taskDiv.innerHTML = `
+      <input type="checkbox" ${task.completed ? "checked" : ""} onchange="toggleTask(${task.id})">
+      <span class="${task.completed ? 'task-completed' : ''}">${task.title}</span>
+      <button onclick="editTask(${task.id})"><i class="fas fa-pencil-alt"></i></button>
+      <button onclick="deleteTask(${task.id})"><i class="fas fa-trash"></i></button>
+    `;
+
+    taskListContainer.appendChild(taskDiv);
+    });
+};
+    const filterTasks = (filter) => {
+    currentFilter = filter;
+    renderTasks();
+  };
+  const toggleTask = (id) => {
+  const task = tasks.find(t => t.id === id);
+  if (task) task.completed = !task.completed;
+  renderTasks();
+  };
+
+  const deleteTask = (id) => {
+  const index = tasks.findIndex(t => t.id === id);
+  if (index !== -1) tasks.splice(index, 1);
+  renderTasks();
+  };
+
+  const editTask = (id) => {
+  const task = tasks.find(t => t.id === id);
+  const newTitle = prompt("Edit your task", task.title);
+  if (newTitle && validateTask(newTitle) === "") {
+    task.title = newTitle;
+    renderTasks();
+  }
+};
+
+const originalAddTask = addTask;
+addTask = () => {
+  originalAddTask();
+  renderTasks();
+};
+
+window.onload = () => renderTasks();
