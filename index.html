@@ -13,42 +13,41 @@
     <link href="./fontawesome/css/fontawesome.min.css" rel="stylesheet" />
     <link href="./fontawesome/css/all.min.css" rel="stylesheet" />
   </head>
-<body>
-  <main class="todo-app" id="todoInputSection">
-    <header>
-      <h1 class="todo-input__heading">TodoInput</h1>
-    </header>
-    <form class="todo-input__form" aria-label="Add new todo form">
-      <div class="todo-input__input-container">
-        <label for="todoInputField" aria-label="Task input">
-          <i class="fas fa-book todo-input__icon"></i>
-        </label>
-        <input
-          type="text"
-          placeholder="Type to add new task"
-          class="todo-input__field"
-          id="todoInputField"
-          aria-describedby="errorMessage"
-        />
+  <body>
+    <main class="todo-app" id="todoInputSection">
+      <header>
+        <h1 class="todo-input__heading">TodoInput</h1>
+      </header>
+      <form class="todo-input__form" aria-label="Add new todo form">
+        <div class="todo-input__input-container">
+          <label for="todoInputField" aria-label="Task input">
+            <i class="fas fa-book todo-input__icon"></i>
+          </label>
+          <input
+            type="text"
+            placeholder="Type to add new task"
+            class="todo-input__field"
+            id="todoInputField"
+            aria-describedby="errorMessage"
+          />
+        </div>
+        <p id="errorMessage" role="alert"></p>
+        <button class="btn btn--primary" id="addNewTaskButton">
+          Add New Task
+        </button>
+      </form>
+    </main>
+
+    <section class="todo-list" aria-label="Todo List Section">
+      <header>
+        <h2 class="todo-list__heading">Todo List</h2>
+      </header>
+      <div class="todo-list__tabs" role="group" aria-label="Task Filters">
+        <button class="btn btn--primary" data-filter="all">All</button>
+        <button class="btn btn--primary" data-filter="done">Done</button>
+        <button class="btn btn--primary" data-filter="todo">Todo</button>
       </div>
-      <p id="errorMessage" role="alert"></p>
-      <button type="submit" class="todo-input__add-button" id="addNewTaskButton">
-        Add New Task
-      </button>
-    </form>
-  </main>
-
-  <section class="todo-list" aria-label="Todo List Section">
-    <header>
-      <h2 class="todo-list__heading">Todo List</h2>
-    </header>
-    <div class="todo-list__tabs" role="group" aria-label="Task Filters">
-      <button onclick="filterTasks('all')" class="todo-input__add-button">All</button>
-      <button onclick="filterTasks('done')" class="todo-input__add-button">Done</button>
-      <button onclick="filterTasks('todo')" class="todo-input__add-button">Todo</button>
-    </div>
-    <div id="taskList" class="task-list"></div>
-  </section>
-</body>
-
+      <div id="taskList" class="task-list"></div>
+    </section>
+  </body>
 </html>
