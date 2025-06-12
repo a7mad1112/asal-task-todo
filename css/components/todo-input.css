@@ -60,7 +60,7 @@
   background-color: var(--main-color);
 }
 
-.todo-input__error-message {
+#errorMessage {
   color: red;
   align-self: start;
   font-size: 15px;
